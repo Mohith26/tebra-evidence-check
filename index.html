@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clinical Note · Evidence Check | Tebra (concept)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="gh">
+  <img src="assets/tebra-logo-white.svg" alt="tebra">
+  <div class="mod"><i class="ti ti-layout-grid"></i></div>
+  <div class="mod"><svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#e6f0f0" stroke-width="1.8" stroke-linejoin="round"><path d="M9 3h6v6h6v6h-6v6H9v-6H3V9h6z"/></svg></div>
+  <div class="mod"><i class="ti ti-coin"></i></div>
+  <div class="mod"><i class="ti ti-heart-handshake"></i></div>
+  <div class="mod"><i class="ti ti-chart-bar"></i></div>
+  <div class="search">Start typing a patient name or DOB <i class="ti ti-search"></i></div>
+  <div class="right"><i class="ti ti-history"></i><i class="ti ti-mail"></i><i class="ti ti-help-circle"></i><div class="me">DH</div></div>
+</header>
+<div class="pbar">
+  <div><div class="nm" id="pname"></div><div class="sub" id="psub"></div></div>
+  <div class="tools"><div class="box-input">Search within this note <i class="ti ti-search"></i></div><div class="sel">Actions <i class="ti ti-chevron-down"></i></div></div>
+</div>
+<div class="body">
+  <aside class="left">
+    <div class="lcard"><h4 id="lname"></h4><div class="pcard" id="pcard"></div>
+      <div class="links"><div>Facesheet <i class="ti ti-external-link"></i></div><div>Immunizations <i class="ti ti-external-link"></i></div><div>Flowsheets <i class="ti ti-external-link"></i></div></div></div>
+    <div class="lcard"><h4>Patient Notes</h4><div class="nlist" id="nlist"></div></div>
+    <div class="lcard"><h4>Note Sections <a>Add Optional</a></h4><div class="slist" id="slist"></div></div>
+    <div class="lcard"><h4>Labs/Studies</h4><div class="links" id="labs"></div></div>
+  </aside>
+  <main class="center">
+    <div class="ntool"><div class="sel" id="ntype" style="min-width:150px"></div><button class="btn">Clear Note</button><div class="sel" style="min-width:110px" id="ndate"></div><div class="sel" style="min-width:90px">10:00 AM <i class="ti ti-clock"></i></div>
+      <div class="ai-tag"><i class="ti ti-file-text-ai"></i>AI-Assisted</div></div>
+    <div class="assign">Assigned To: <div class="sel" id="assign" style="min-width:150px"></div></div>
+    <div class="assign"><b style="color:#1d1d1d">Treatment Plan</b>&nbsp;&nbsp; Created Date: <div class="sel" style="min-width:130px">03/04/2021 <i class="ti ti-chevron-down"></i></div> <a style="color:#004852;margin-left:8px">Expand</a></div>
+    <div class="note" id="note"></div>
+    <section class="val" id="val"></section>
+    <div class="foot">Unofficial concept demo by Mohith Gajjela. Not affiliated with Tebra. Synthetic data.</div>
+    <div class="err" id="err"></div>
+  </main>
+  <aside class="right-p" id="rp"></aside>
+</div>
+<footer class="bbar" id="bbar"></footer>
+<script>
+  window.__errors = [];
+  const rec = (m) => { window.__errors.push(String(m)); const el = document.getElementById('err'); if (el) el.textContent = 'ERR ' + window.__errors.join(' | '); };
+  window.addEventListener('error', (e) => rec(e.message));
+  window.addEventListener('unhandledrejection', (e) => rec(e.reason));
+</script>
+<script type="module" src="app.js"></script>
+</body>
+</html>
